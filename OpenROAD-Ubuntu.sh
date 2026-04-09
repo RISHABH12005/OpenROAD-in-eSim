@@ -59,13 +59,4 @@ sudo apt install -y \
   libxcb-image0 libxcb-keysyms1 \
   libxcb-render-util0
 
-cd ~
-git clone https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
-cd OpenROAD-flow-scripts
-
-sudo ./setup.sh
-
-cd flow
-make
-
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
