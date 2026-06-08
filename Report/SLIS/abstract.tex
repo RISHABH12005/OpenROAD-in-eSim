@@ -1,0 +1,36 @@
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\noindent
+eSim is a free and open-source Electronic Design Automation (EDA) tool developed by the FOSSEE team at IIT Bombay. It provides an integrated environment for circuit design, simulation, and analysis using tools such as KiCad, Ngspice, GHDL, and Verilator through a Python-based graphical interface.
+
+\vspace{0.3cm}
+
+\noindent
+This internship project focuses on the integration of \textbf{OpenROAD}, an open-source RTL-to-GDSII digital physical design flow, with eSim. The objective of the project was to enable users to directly perform backend physical design operations from the eSim environment, thereby extending eSim from circuit simulation to complete digital layout generation.
+
+\vspace{0.3cm}
+
+\noindent
+The implementation involved modifying the eSim frontend by updating \texttt{Application.py} to include an OpenROAD execution button within the graphical user interface. A backend automation module, \texttt{OpenROAD.py}, was developed to manage the OpenROAD Flow Scripts (ORFS) execution process. Additionally, a Python-based converter script, \texttt{netlist2rtl.py}, was implemented to automatically generate synthesizable Verilog code from eSim-generated \texttt{.cir.out} netlist files.
+
+\vspace{0.3cm}
+
+\noindent
+The integrated workflow was validated using two example circuits: \textbf{FullAdder} and \textbf{HalfAdder}. The generated Verilog files were successfully processed through the OpenROAD RTL-to-GDSII flow, producing backend design outputs including synthesized Verilog, DEF floorplan files, GDSII layout files, timing constraint files, and parasitic extraction reports.
+
+\vspace{0.3cm}
+
+\noindent
+The generated layouts and backend outputs were verified using the OpenROAD GUI and KLayout visualization tools. Multiple debugging and integration issues related to file handling, OpenROAD execution paths, DEF loading, RTL generation, and GUI execution were identified and resolved during the implementation process.
+
+\vspace{0.3cm}
+
+\noindent
+The complete implementation and project repositories are publicly available at:
+
+\begin{itemize}
+\item \url{https://github.com/FOSSEE/eSim-to-OpenROAD_Design_Flow_Plugin}
+
+\item \url{https://github.com/RISHABH12005/eSim-OpenROAD-Plugin}
+\end{itemize}

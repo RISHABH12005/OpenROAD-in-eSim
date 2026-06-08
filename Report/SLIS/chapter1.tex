@@ -1,0 +1,110 @@
+\chapter{Introduction to eSim}
+
+\section{Overview}
+
+eSim (previously known as Oscad/FreeEDA) is a free and open-source Electronic Design Automation (EDA) tool developed by the FOSSEE (Free/Libre and Open Source Software for Education) project at IIT Bombay. It provides an integrated environment for circuit design, simulation, analysis, and PCB design using open-source tools such as KiCad, Ngspice, GHDL, and Verilator through a unified Python-based graphical user interface built using Python and PyQt5.
+
+eSim serves as an accessible alternative to proprietary EDA software such as OrCAD, PSpice, and LTspice. Its open-source architecture allows students, researchers, and developers to study the internal implementation of the tool, contribute improvements, and extend functionalities according to project requirements.
+
+The platform is supported under the National Mission on Education through ICT (NMEICT), Ministry of Education, Government of India, with the objective of promoting open-source software usage in engineering education and research.
+
+\section{Open-Source Circuit Simulation}
+
+The primary simulation engine used in eSim is Ngspice, which supports DC, AC, transient, and noise analysis. KiCad is integrated for schematic capture, while GHDL and Verilator enable mixed-signal simulation support through the NGHDL subsystem.
+
+The modular and open-source nature of eSim makes it highly suitable for educational projects, internship contributions, and research-oriented development. During this internship, the same architecture was extended to integrate OpenROAD for RTL-to-GDSII backend physical design flow support.
+
+\section{eSim Workspace and Project Structure}
+
+The eSim workspace organizes individual circuits as separate project directories. Each project typically contains simulation files, generated netlists, schematic files, and backend outputs required during circuit analysis and implementation.
+
+Common project files include:
+
+\begin{itemize}
+    \item \texttt{.cir} --- KiCad-generated circuit netlist
+    \item \texttt{.cir.out} --- processed Ngspice-compatible netlist
+    \item \texttt{.sch} --- schematic design file
+    \item \texttt{.sub} --- subcircuit definitions
+\end{itemize}
+
+Figure~\ref{fig:files} shows the eSim workspace and file manager interface used during the project implementation.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{Files.png}
+\caption{eSim workspace file manager showing project structure.}
+\label{fig:files}
+\end{figure}
+
+\section{Project Organisation}
+
+The OpenROAD integration workflow was tested using example circuit projects such as \textbf{FullAdder} and \textbf{HalfAdder}. Each project directory contained generated netlists, synthesized Verilog files, backend physical design outputs, and generated layout files.
+
+Figure~\ref{fig:faproject} shows the FullAdder project structure inside the eSim project panel.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.50\textwidth]{FA-Project.png}
+\caption{FullAdder project structure inside the eSim project panel.}
+\label{fig:faproject}
+\end{figure}
+
+\section{Internship Objective}
+
+The primary objective of this internship was to integrate the \textbf{OpenROAD} digital physical design flow into eSim, enabling users to execute a complete RTL-to-GDSII workflow directly from the eSim graphical interface.
+
+The major objectives of the project included:
+
+\begin{itemize}
+    \item Understanding the eSim frontend and project workflow.
+    \item Adding an OpenROAD execution button in the eSim graphical interface.
+    \item Developing a backend Python module to execute OpenROAD Flow Scripts (ORFS).
+    \item Implementing a netlist-to-RTL converter for automatic Verilog generation.
+    \item Generating backend physical design outputs such as DEF and GDSII files.
+    \item Testing the complete workflow using FullAdder and HalfAdder circuits.
+    \item Visualizing generated layouts using OpenROAD GUI and KLayout.
+\end{itemize}
+
+\section{Project Directory Structure}
+
+The integrated OpenROAD-eSim system follows the directory structure shown below:
+
+\begin{lstlisting}[language=bash, caption={Project directory structure used during integration.}]
+eSim/
+|-- src/
+|   |-- frontEnd/
+|   |   `-- Application.py
+|   |
+|   `-- maker/
+|       |-- OpenROAD.py
+|       `-- netlist2rtl.py
+|
+|-- Examples/
+|   |-- FullAdder/
+|   |   |-- FullAdder.cir.out
+|   |   |-- FullAdder.v
+|   |   |-- FullAdder.def
+|   |   |-- FullAdder.gds
+|   |   `-- logs/
+|   |
+|   `-- HalfAdder/
+|       |-- HalfAdder.cir.out
+|       |-- HalfAdder.v
+|       |-- HalfAdder.def
+|       |-- HalfAdder.gds
+|       `-- logs/
+|
+`-- OpenROAD-flow-scripts/
+    `-- flow/
+        |-- designs/
+        |   `-- sky130hd/
+        |       |-- FullAdder/
+        |       `-- HalfAdder/
+        |
+        `-- results/
+            `-- sky130hd/
+                |-- FullAdder/
+                `-- HalfAdder/
+\end{lstlisting}
+
+The above structure was used throughout the internship for OpenROAD integration, backend automation, testing, and generated file management.

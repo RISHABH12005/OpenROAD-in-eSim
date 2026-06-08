@@ -1,0 +1,56 @@
+\chapter{Conclusion}
+
+\section{Summary}
+
+This internship successfully implemented the integration of the \textbf{OpenROAD} digital physical design flow into the \textbf{eSim} open-source EDA environment. The completed workflow connects eSim circuit simulation with the OpenROAD RTL-to-GDSII backend implementation flow entirely within an open-source ecosystem.
+
+The major implementation tasks completed during this internship include:
+
+\begin{enumerate}
+    \item Integration of an OpenROAD execution button into the eSim graphical interface through modifications in \texttt{Application.py}.
+    
+    \item Development of \texttt{netlist2rtl.py} for automatic Verilog generation from eSim-generated \texttt{.cir.out} netlists.
+    
+    \item Development of \texttt{OpenROAD.py} for OpenROAD Flow Scripts (ORFS) execution and backend automation.
+    
+    \item Automatic generation of \texttt{config.mk} and \texttt{constraint.sdc} files required for ORFS execution.
+    
+    \item Successful RTL-to-GDSII flow validation for both FullAdder and HalfAdder circuits.
+    
+    \item Generation of backend outputs including Verilog, DEF, GDSII, SDC, and SPEF files.
+    
+    \item Successful layout visualization using OpenROAD GUI and KLayout.
+    
+    \item Identification and resolution of multiple backend integration and execution issues during implementation.
+\end{enumerate}
+
+\section{Learning Outcomes}
+
+This internship provided practical exposure to:
+
+\begin{itemize}
+    \item eSim frontend and backend architecture,
+    \item Python and PyQt5 GUI development,
+    \item OpenROAD Flow Scripts (ORFS),
+    \item RTL synthesis using Yosys,
+    \item physical design flow execution,
+    \item GDSII layout visualization using KLayout,
+    \item debugging and integration of open-source EDA tools.
+\end{itemize}
+
+The project also provided hands-on experience with backend automation, flow execution management, and open-source digital design workflows.
+
+\section{Final Remarks}
+
+The completed integration demonstrates that a complete open-source RTL-to-GDSII workflow can be executed directly from the eSim environment. The successful implementation of FullAdder and HalfAdder backend flows confirms that OpenROAD can be effectively integrated into eSim for digital physical design automation.
+
+This integration extends the capabilities of eSim beyond circuit simulation by enabling backend physical design generation within a unified open-source environment.
+
+Figure~\ref{fig:conclusion_flow} shows the successful RTL-to-GDSII flow completion for the FullAdder circuit.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{FA-Flow-completed.png}
+\caption{Successful RTL-to-GDSII flow completion for the FullAdder circuit.}
+\label{fig:conclusion_flow}
+\end{figure}

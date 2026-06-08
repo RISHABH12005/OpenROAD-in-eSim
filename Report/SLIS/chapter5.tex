@@ -1,0 +1,230 @@
+\chapter{Example Circuit and Testing}
+
+\section{Overview}
+
+Two example circuits were used to validate the complete OpenROAD integration workflow: \textbf{FullAdder} and \textbf{HalfAdder}. Both circuits were successfully processed through the complete RTL-to-GDSII backend flow and the generated outputs were verified at each implementation stage.
+
+\section{FullAdder Testing}
+
+\subsection{Input: FullAdder.cir.out}
+
+The FullAdder project uses a \texttt{.cir.out} netlist generated from the KiCad schematic inside eSim. The circuit implements a 1-bit FullAdder with three input ports (\texttt{in1}, \texttt{in2}, and \texttt{cin}) and two output ports (\texttt{sum} and \texttt{cout}).
+
+\subsection{Generated Verilog}
+
+The \texttt{netlist2rtl.py} converter processed the generated \texttt{FullAdder.cir.out} file and automatically generated the following Verilog module:
+
+\begin{lstlisting}[language=verilog,
+caption={Generated FullAdder.v module.}]
+module FullAdder (
+    cin,
+    cout,
+    in1,
+    in2,
+    sum
+);
+
+input cin;
+output cout;
+input in1;
+input in2;
+output sum;
+
+wire net1;
+wire net2;
+wire net3;
+wire net4;
+wire net5;
+
+sky130_fd_sc_hd__fa_1 _0_ (
+    .A(net2),
+    .B(net3),
+    .CIN(net1),
+    .COUT(net4),
+    .SUM(net5)
+);
+
+sky130_fd_sc_hd__clkdlybuf4s50_1 input1 (
+    .A(cin),
+    .X(net1)
+);
+
+sky130_fd_sc_hd__clkdlybuf4s50_1 input2 (
+    .A(in1),
+    .X(net2)
+);
+
+sky130_fd_sc_hd__clkdlybuf4s50_1 input3 (
+    .A(in2),
+    .X(net3)
+);
+
+sky130_fd_sc_hd__clkdlybuf4s50_1 output4 (
+    .A(net4),
+    .X(cout)
+);
+
+sky130_fd_sc_hd__clkdlybuf4s50_1 output5 (
+    .A(net5),
+    .X(sum)
+);
+
+endmodule
+\end{lstlisting}
+
+\subsection{Generated SDC File}
+
+The timing constraints file was automatically generated during ORFS setup.
+
+\begin{lstlisting}[language=tcl,
+caption={Auto-generated FullAdder constraint.sdc file.}]
+current_design FullAdder
+
+create_clock -name clk -period 10.0000
+
+set_input_delay 0.1000 -add_delay \
+[get_ports {cin}]
+
+set_input_delay 0.1000 -add_delay \
+[get_ports {in1}]
+
+set_input_delay 0.1000 -add_delay \
+[get_ports {in2}]
+
+set_output_delay 0.1000 -add_delay \
+[get_ports {cout}]
+
+set_output_delay 0.1000 -add_delay \
+[get_ports {sum}]
+\end{lstlisting}
+
+\subsection{Flow Completion}
+
+The OpenROAD Flow Scripts execution for the FullAdder circuit completed successfully through all backend stages including synthesis, floorplanning, placement, CTS, routing, and GDSII generation.
+
+Figure~\ref{fig:fa_flow_done} shows the terminal output after successful completion of the RTL-to-GDSII flow.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{FA-Flow-completed.png}
+\caption{Successful RTL-to-GDSII flow completion for the FullAdder circuit.}
+\label{fig:fa_flow_done}
+\end{figure}
+
+\subsection{Generated Output Files}
+
+After successful ORFS execution, multiple backend design files were generated automatically.
+
+\begin{table}[H]
+\centering
+\caption{Generated output files after ORFS execution.}
+
+\begin{tabular}{lll}
+\toprule
+
+\textbf{File} &
+\textbf{Format} &
+\textbf{Description} \\
+
+\midrule
+
+\texttt{FullAdder.v}
+& Verilog
+& Generated RTL module \\
+
+\texttt{FullAdder.def}
+& DEF
+& Placement and routing data \\
+
+\texttt{FullAdder.gds}
+& GDSII
+& Final layout file \\
+
+\texttt{FullAdder.sdc}
+& SDC
+& Timing constraints \\
+
+\texttt{FullAdder.spef}
+& SPEF
+& Parasitic extraction output \\
+
+\texttt{logs/}
+& Directory
+& Backend execution logs \\
+
+\bottomrule
+\end{tabular}
+
+\label{tab:output_files}
+\end{table}
+
+\section{OpenROAD GUI Visualization}
+
+After completion of the backend flow, the generated layout was opened automatically in the OpenROAD GUI using the generated \texttt{.odb} database file.
+
+Figure~\ref{fig:fa_openroad} shows the FullAdder physical layout displayed in the OpenROAD GUI.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{FA-OpenROAD.png}
+\caption{FullAdder layout visualized in the OpenROAD GUI.}
+\label{fig:fa_openroad}
+\end{figure}
+
+\section{KLayout Visualization}
+
+The generated GDSII layout file was also verified using KLayout.
+
+Figure~\ref{fig:fa_klayout} shows the FullAdder layout loaded in KLayout for physical inspection.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{FA-Klayout.png}
+\caption{FullAdder GDS layout visualized in KLayout.}
+\label{fig:fa_klayout}
+\end{figure}
+
+\section{HalfAdder Testing}
+
+The HalfAdder circuit was also validated successfully using the same OpenROAD integration workflow. The generated \texttt{HalfAdder.cir.out} file was converted into Verilog using \texttt{netlist2rtl.py}, and the OpenROAD Flow Scripts execution completed successfully.
+
+The generated backend outputs included:
+
+\begin{itemize}
+    \item synthesized Verilog,
+    \item DEF layout files,
+    \item GDSII layout files,
+    \item timing constraint files,
+    \item ORFS execution logs.
+\end{itemize}
+
+Figure~\ref{fig:fa_ha} shows both FullAdder and HalfAdder projects after successful flow completion.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{FA-HA.png}
+\caption{FullAdder and HalfAdder after successful RTL-to-GDSII flow execution.}
+\label{fig:fa_ha}
+\end{figure}
+
+\section{Workflow Summary}
+
+The complete validated workflow implemented during the internship is summarized below:
+
+\begin{enumerate}
+    \item Create and simulate the circuit in eSim using KiCad and Ngspice.
+    
+    \item Run KiCad-to-Ngspice conversion to generate the \texttt{.cir.out} file.
+    
+    \item Click the OpenROAD button integrated into the eSim toolbar.
+    
+    \item Automatically generate Verilog RTL using \texttt{netlist2rtl.py}.
+    
+    \item Automatically generate \texttt{config.mk} and \texttt{constraint.sdc}.
+    
+    \item Execute the ORFS backend implementation flow.
+    
+    \item Generate backend outputs including DEF and GDSII layouts.
+    
+    \item Visualize the generated layouts using OpenROAD GUI and KLayout.
+\end{enumerate}
