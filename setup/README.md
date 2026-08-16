@@ -1,8 +1,13 @@
-#OpenROAD GUI
+# OpenROAD GUI:-
+```bash
 cd ~/eSim/OpenROAD-flow-scripts/flow
 openroad -gui
+```
 
-# For Half Adder
+# Tcl Cmd:-
+
+## For Half Adder
+```tcl
 read_lef platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
 
 read_lef platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
@@ -10,8 +15,10 @@ read_lef platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
 read_def results/sky130hd/Half_Adder/base/6_final.def
 
 gui::fit
+```
 
-# For Full Adder
+## For Full Adder
+```tcl
 read_lef platforms/sky130hd/lef/sky130_fd_sc_hd.tlef
 
 read_lef platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
@@ -19,3 +26,4 @@ read_lef platforms/sky130hd/lef/sky130_fd_sc_hd_merged.lef
 read_def results/sky130hd/FullAdder/base/6_final.def
 
 gui::fit
+```
