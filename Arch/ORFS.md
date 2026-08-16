@@ -1,5 +1,5 @@
 # Workflow of the GUI o fthe ORFS to eSim:-
-<div style="font-size: 12px;">
+<div style="font-size: 10px;">
 ```text
 
 			   User [.cir] <- {Made by User input}
@@ -11,7 +11,7 @@
 			  User [.v (Behavioral); .vhdl; .sdc] <- {Or Made by User input if they have ther own file}														 |
 			 	|																																			 |		
 			 	↓																																			 |
-IHP 130nm / Skywater 130nm / FreePDK / etc. (PDK) [.lef(Physical Blueprint), .lib(Electrical Spec Sheet)]			    									 |
+    IHP 130nm / Skywater 130nm / FreePDK / etc. (PDK) [.lef(Physical Blueprint), .lib(Electrical Spec Sheet)]			    								 |
 				|																																			 |
 				↓																																			 |
 			  Yosys [.v (Gate-Level Netlist)]																												 |
