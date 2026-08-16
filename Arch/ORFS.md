@@ -1,5 +1,4 @@
 # Workflow of the GUI o fthe ORFS to eSim:-
-<div style="font-size: 10px;">
 ```text
 
 			   User [.cir] <- {Made by User input}
