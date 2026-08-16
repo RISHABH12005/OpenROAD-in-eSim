@@ -1,0 +1,14 @@
+OpenROAD 26Q3-771-g7cfb2105c9 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/rj/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/FullAdder/base/5_route.odb
+read_sdc ./results/sky130hd/FullAdder/base/5_route.sdc
+source /home/rj/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+exec cp ./results/sky130hd/FullAdder/base/5_route.odb ./results/sky130hd/FullAdder/base/6_1_fill.odb
+Elapsed time: 0:00.49[h:]min:sec. CPU time: user 0.39 sys 0.08 (96%). Peak memory: 123872KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_1_fill                  .odb            0            120 d92495acb22b6f8861fb
+6_1_fill                  .sdc                             60d29f86c52cbf6abec1

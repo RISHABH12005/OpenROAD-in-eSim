@@ -1,0 +1,17 @@
+OpenROAD 26Q3-528-g20d2d5c16e 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/rj/Work/vlsi/tools/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/Half_Adder/base/5_2_route.odb
+read_sdc ./results/sky130hd/Half_Adder/base/5_1_grt.sdc
+source /home/rj/Work/vlsi/tools/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+[WARNING STA-0450] virtual clock clk can not be propagated.
+filler_placement "sky130_fd_sc_hd__fill_1 sky130_fd_sc_hd__fill_2 sky130_fd_sc_hd__fill_4 sky130_fd_sc_hd__fill_8"
+[INFO DPL-0001] Placed 3003 filler instances.
+Design area 465 um^2 2% utilization.
+write_db ./results/sky130hd/Half_Adder/base/5_3_fillcell.odb
+Elapsed time: 0:00.40[h:]min:sec. CPU time: user 0.35 sys 0.06 (101%). Peak memory: 127712KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+5_3_fillcell              .odb            0            124 7c5c20665749cd26aec1

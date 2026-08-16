@@ -1,0 +1,24 @@
+OpenROAD 26Q3-771-g7cfb2105c9 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/rj/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/FullAdder/base/3_1_place_gp_skip_io.odb
+read_sdc ./results/sky130hd/FullAdder/base/2_floorplan.sdc
+source /home/rj/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+place_pins -hor_layers met3 -ver_layers met2
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0001] Number of available slots 718
+[INFO PPL-0002] Number of I/O             5
+[INFO PPL-0003] Number of I/O w/sink      5
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 490.31 um.
+Design area 483 um^2 2% utilization.
+write_db ./results/sky130hd/FullAdder/base/3_2_place_iop.odb
+Elapsed time: 0:00.68[h:]min:sec. CPU time: user 0.49 sys 0.15 (94%). Peak memory: 122464KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_2_place_iop             .odb            0            119 9fef074dc18e872e5d6a

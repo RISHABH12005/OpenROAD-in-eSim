@@ -1,3 +1,15 @@
+# =====================================================================
+#          FILE: netlist2rtl.py
+#
+#   DESCRIPTION: This file is used to convert netlist to verilog
+#
+#        AUTHOR: Rishabh Jain, 2r10j5@gmail.com
+#    MAINTAINED: Sumanto Kar, sumantokar@iitb.ac.in
+#  ORGANIZATION: eSim Team at FOSSEE, IIT Bombay
+#       CREATED: Monday 2 March 2026
+#      REVISION: Monday 3 Aug 2026
+# =====================================================================
+
 import os
 import sys
 

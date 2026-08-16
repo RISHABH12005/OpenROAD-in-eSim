@@ -1,0 +1,13 @@
+OpenROAD 26Q3-528-g20d2d5c16e 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/rj/Work/vlsi/tools/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/Half_Adder/base/5_route.odb
+read_sdc ./results/sky130hd/Half_Adder/base/5_route.sdc
+source /home/rj/Work/vlsi/tools/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+exec cp ./results/sky130hd/Half_Adder/base/5_route.odb ./results/sky130hd/Half_Adder/base/6_1_fill.odb
+Elapsed time: 0:00.37[h:]min:sec. CPU time: user 0.32 sys 0.05 (100%). Peak memory: 123876KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+6_1_fill                  .odb            0            120 7c5c20665749cd26aec1

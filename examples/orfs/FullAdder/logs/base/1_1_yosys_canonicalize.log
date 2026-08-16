@@ -1,0 +1,20 @@
+Yosys 0.67+ (git sha1 b88b73a99, Release, GNU /usr/bin/g++-11 11.4.0) [github.com/The-OpenROAD-Project/yosys at HEAD]
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/sky130hd/FullAdder/base/clock_period.txt
+Setting clock period to 10
+1. Executing Liberty frontend: /home/rj/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /home/rj/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: designs/sky130hd/FullAdder/src/FullAdder.v
+4. Executing Verilog-2005 frontend: /home/rj/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+5. Executing HIERARCHY pass (managing design hierarchy).
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\FullAdder'.
+6.1. Analyzing design hierarchy..
+6.2. Analyzing design hierarchy..
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+8. Executing RTLIL backend.
+End of script. Logfile hash: 6a5b75bcc2, time: 0.29s, user: 0.15s, system: 0.11s, MEM: 55.75 MB peak
+Yosys 0.67+ (git sha1 b88b73a99, Release, GNU /usr/bin/g++-11 11.4.0) [github.com/The-OpenROAD-Project/yosys at HEAD]
+Time spent: 86% 4x read_liberty (0 sec), 4% 2x write_rtlil (0 sec), ...
+Elapsed time: 0:00.30[h:]min:sec. CPU time: user 0.16 sys 0.12 (94%). Peak memory: 59776KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+1_1_yosys_canonicalize    .rtlil          0             58 6a32acefedb3d8827871

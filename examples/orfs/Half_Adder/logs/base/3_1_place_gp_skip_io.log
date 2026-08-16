@@ -1,0 +1,67 @@
+OpenROAD 26Q3-528-g20d2d5c16e 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 8 thread(s).
+read_liberty /home/rj/Work/vlsi/tools/OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/Half_Adder/base/2_floorplan.odb
+read_sdc ./results/sky130hd/Half_Adder/base/2_floorplan.sdc
+source /home/rj/Work/vlsi/tools/OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+global_placement -skip_io -density 0.4 -pad_left 0 -pad_right 0
+[INFO GPL-0001] ---- Initialize GPL Main Data Structures
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 20.240 21.760 ) ( 179.860 179.520 ) um
+[INFO GPL-0036] Movable instances area:         12.512 um^2
+[INFO GPL-0037] Total instances area:          425.408 um^2
+[INFO GPL-0035] Pin density area adjust:        -0.015 um^2
+[INFO GPL-0032] ---- Initialize Region: Top-level
+[INFO GPL-0006] Number of instances:               331
+[INFO GPL-0007] Movable instances:                   1
+[INFO GPL-0008] Fixed instances:                   330
+[INFO GPL-0009] Dummy instances:                     0
+[INFO GPL-0010] Number of nets:                      4
+[INFO GPL-0011] Number of pins:                      4
+[INFO GPL-0012] Die BBox:  (  0.000  0.000 ) ( 200.000 200.000 ) um
+[INFO GPL-0013] Core BBox: ( 20.240 21.760 ) ( 179.860 179.520 ) um
+[INFO GPL-0016] Core area:                   25181.651 um^2
+[INFO GPL-0014] Region name: top-level.
+[INFO GPL-0015] Region area:                 25181.651 um^2
+[INFO GPL-0017] Fixed instances area:          412.896 um^2
+[INFO GPL-0018] Movable instances area:         12.497 um^2
+[INFO GPL-0019] Utilization:                     0.050 %
+[INFO GPL-0020] Standard cells area:            12.497 um^2
+[INFO GPL-0021] Large instances area:            0.000 um^2
+[INFO GPL-0005] ---- Execute Conjugate Gradient Initial Placement.
+[INFO GPL-0051] Source of initial instance position counters:
+	Odb location = 0	Core center = 1	Region center = 0
+[INFO GPL-0033] ---- Initialize Nesterov Region: Top-level
+[INFO GPL-0023] Placement target density:       0.4000
+[INFO GPL-0024] Movable insts average area:     12.497 um^2
+[INFO GPL-0025] Ideal bin area:                 31.243 um^2
+[INFO GPL-0026] Ideal bin count:                   805
+[INFO GPL-0027] Total bin area:              25181.651 um^2
+[INFO GPL-0028] Bin count (X, Y):          16 ,     16
+[INFO GPL-0029] Bin size (W * H):       9.976 *  9.860 um
+[INFO GPL-0030] Number of bins:                    256
+[INFO GPL-0084] ---- Execute Nesterov Global Placement.
+[INFO GPL-0031] HPWL: Half-Perimeter Wirelength
+Iteration | Overflow |     HPWL (um) |  HPWL(%) |   Penalty | Group
+---------------------------------------------------------------
+        0 |   0.0000 |  0.000000e+00 |   +0.00% |  8.00e-05 |      
+        0 |   0.0000 |  0.000000e+00 |          |  8.32e-05 |      
+---------------------------------------------------------------
+[INFO GPL-1001] Global placement finished at iteration 0
+[INFO GPL-1002] Placed Cell Area               12.4974
+[INFO GPL-1003] Available Free Area         24768.7552
+[INFO GPL-1004] Minimum Feasible Density        0.0100 (cell_area / free_area)
+[INFO GPL-1006]   Suggested Target Densities:
+[INFO GPL-1007]     - For 90% usage of free space: 0.0006
+[INFO GPL-1008]     - For 80% usage of free space: 0.0006
+[INFO GPL-1009]     - For 50% usage of free space: 0.0010
+[INFO GPL-1014] Final placement area: 12.50 (+0.00%)
+Design area 425 um^2 2% utilization.
+write_db ./results/sky130hd/Half_Adder/base/3_1_place_gp_skip_io.odb
+Elapsed time: 0:00.39[h:]min:sec. CPU time: user 0.44 sys 0.07 (130%). Peak memory: 123352KB.
+Log                       Ext     Elapsed/s Peak Memory/MB sha1sum result [0:20)
+3_1_place_gp_skip_io      .odb            0            120 2c7e732a759a35761a52

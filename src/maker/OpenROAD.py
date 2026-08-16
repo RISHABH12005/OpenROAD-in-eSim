@@ -1,17 +1,68 @@
+# =====================================================================
+#          FILE: OpenROAD.py
+#
+#   DESCRIPTION: This file is used to connect with orfs to esim
+#
+#        AUTHOR: Rishabh Jain, 2r10j5@gmail.com
+#    MAINTAINED: Sumanto Kar, sumantokar@iitb.ac.in
+#  ORGANIZATION: eSim Team at FOSSEE, IIT Bombay
+#       CREATED: Monday 2 March 2026
+#      REVISION: Monday 3 Aug 2026
+# =====================================================================
+
 import os
 import shutil
 import subprocess
 import sys
 
-
 class OpenROADFlow:
+
+    @staticmethod
+    def orfs_root_path():
+        return os.path.expanduser(
+            "~/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts"
+        )
+
+    @staticmethod
+    def detect_platforms():
+        platforms_dir = os.path.join(
+            OpenROADFlow.orfs_root_path(), "flow", "platforms"
+        )
+        if not os.path.isdir(platforms_dir):
+            return []
+        exclude = {"common", "sky130io", "sky130ram"}
+        found = []
+        for name in sorted(os.listdir(platforms_dir)):
+            dirpath = os.path.join(platforms_dir, name)
+            if os.path.isdir(dirpath) and name not in exclude:
+                found.append(name)
+        return found
+
+    @staticmethod
+    def default_platform():
+        platforms = OpenROADFlow.detect_platforms()
+        if not platforms:
+            return "sky130hd"
+        if "sky130hd" in platforms:
+            return "sky130hd"
+        if len(platforms) == 1:
+            return platforms[0]
+        return platforms[0]
 
     def __init__(
         self,
         design_name,
         verilog_file,
-        platform="sky130hd"
+        platform=None
     ):
+        if platform is None:
+            platform = OpenROADFlow.default_platform()
+
+        self.design_name = design_name
+        self.verilog_file = os.path.abspath(verilog_file)
+        self.platform = platform
+
+        self.orfs_root = OpenROADFlow.orfs_root_path()
 
         self.design_name = design_name
 
@@ -22,7 +73,7 @@ class OpenROADFlow:
         self.platform = platform
 
         self.orfs_root = os.path.expanduser(
-            "~/eSim/OpenROAD-flow-scripts"
+            "~/eSim-to-OpenROAD_Design_Flow_Plugin/orfs/OpenROAD-flow-scripts"
         )
 
         self.flow_dir = os.path.join(
@@ -162,7 +213,7 @@ export PLACE_DENSITY = 0.40
             f"Generated Config:\n{config_file}\n"
         )
 
-    def run_flow(self):
+    def run_flow(self, line_callback=None):
 
         cmd = [
             "make",
@@ -178,7 +229,9 @@ export PLACE_DENSITY = 0.40
         )
 
         for line in process.stdout:
-
+            stripped = line.rstrip("\n")
+            if line_callback:
+                line_callback(stripped)
             print(line, end="")
 
         process.wait()

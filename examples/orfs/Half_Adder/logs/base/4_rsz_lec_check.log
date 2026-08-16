@@ -1,0 +1,54 @@
+[2026-07-27 18:37:39.957] [miter_logger] [info] MiterStrategy::run starting
+[2026-07-27 18:37:39.957] [miter_logger] [info] Collecting POs for design 0: Half_Adder
+
+[2026-07-27 18:37:39.957] [miter_logger] [info] Collected 2 PIs for design 0
+
+[2026-07-27 18:37:39.957] [miter_logger] [info] Collected 2 POs for design 0
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] design 0 PI summary by model/term (2 total terminals, 2 unique rows):
+| Model      | Term | Count |
+|------------|------|-------|
+| Half_Adder | in1  |     1 |
+| Half_Adder | in2  |     1 |
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] design 0 PO summary by model/term (2 total terminals, 2 unique rows):
+| Model      | Term | Count |
+|------------|------|-------|
+| Half_Adder | cout |     1 |
+| Half_Adder | sum  |     1 |
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] Collecting POs for design 1: Half_Adder
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] Collected 2 PIs for design 1
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] Collected 2 POs for design 1
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] design 1 PI summary by model/term (2 total terminals, 2 unique rows):
+| Model      | Term | Count |
+|------------|------|-------|
+| Half_Adder | in1  |     1 |
+| Half_Adder | in2  |     1 |
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] design 1 PO summary by model/term (2 total terminals, 2 unique rows):
+| Model      | Term | Count |
+|------------|------|-------|
+| Half_Adder | cout |     1 |
+| Half_Adder | sum  |     1 |
+
+[2026-07-27 18:37:39.958] [miter_logger] [info] normalizeInputs: starting
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of common inputs: 2
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of diff0 inputs: 0
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of diff1 inputs: 0
+[2026-07-27 18:37:39.958] [miter_logger] [info] normalizeOutputs: starting
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of common outputs: 2
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of diff0 outputs: 0
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of diff1 outputs: 0
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of PIs in circuit 0: 2
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of PIs in circuit 1: 2
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of POs in circuit 0: 2
+[2026-07-27 18:37:39.958] [miter_logger] [info] size of POs in circuit 1: 2
+[2026-07-27 18:37:39.958] [miter_logger] [info] Building miter expression
+[2026-07-27 18:37:39.958] [miter_logger] [info] Finished building miter expression
+[2026-07-27 18:37:39.958] [miter_logger] [info] SAT solver starting
+[2026-07-27 18:37:39.958] [miter_logger] [info] SAT solver finished: UNSAT
+[2026-07-27 18:37:39.958] [miter_logger] [info] Circuits are IDENTICAL
